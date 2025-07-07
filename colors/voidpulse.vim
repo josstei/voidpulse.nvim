@@ -45,10 +45,10 @@ else
   
     function! s:hi(group, ...)
         let l:cmd = 'highlight ' . a:group
-        if len(a:000) >= 1 && !empty(a:1) | let l:cmd .= ' guifg=' . a:1 | endif
-        if len(a:000) >= 2 && !empty(a:2) | let l:cmd .= ' guibg=' . a:2 | endif
-        if len(a:000) >= 3 && !empty(a:3) | let l:cmd .= ' gui=' . a:3 | endif
-        if len(a:000) >= 4 && !empty(a:4) | let l:cmd .= ' guisp=' . a:4 | endif
+        if len(a:000) >= 1 && !empty(a:1) | let l:cmd .= ' guifg='  . a:1 | endif
+        if len(a:000) >= 2 && !empty(a:2) | let l:cmd .= ' guibg='  . a:2 | endif
+        if len(a:000) >= 3 && !empty(a:3) | let l:cmd .= ' gui='    . a:3 | endif
+        if len(a:000) >= 4 && !empty(a:4) | let l:cmd .= ' guisp='  . a:4 | endif
         execute l:cmd
     endfunction
   
