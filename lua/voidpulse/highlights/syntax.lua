@@ -1,4 +1,3 @@
--- Basic syntax highlighting
 local M = {}
 
 M.setup = function(colors, utils)
