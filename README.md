@@ -12,6 +12,14 @@ A modern, elegant dark theme for Neovim with vibrant accent colors and excellent
 - **Terminal Colors**: Integrated terminal color scheme
 - **Treesitter Ready**: Optimized for modern syntax highlighting
 
+## 📸 Screenshots
+
+VoidPulse showcases its elegant dark color scheme with purple and blue tones:
+
+![image1](image1)
+
+> **Note on Images**: To keep the repository lightweight, screenshots and media files are stored in the `.media/` directory (excluded from git). For documentation purposes, consider using external image hosting services like GitHub releases, imgur, or other image hosting platforms to display screenshots without bloating the repository.
+
 ## 🎨 Color Palette
 
 VoidPulse features a carefully curated color palette inspired by the depths of space:
