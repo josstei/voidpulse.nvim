@@ -2,7 +2,7 @@
 
 A modern, elegant dark theme for Neovim with vibrant accent colors and excellent syntax highlighting support.
 
-![Screenshot_Rust](https://github.com/user-attachments/assets/c52702cc-d664-471f-b8dd-eb484eab3177)
+![Screenshot_Demo](https://github.com/user-attachments/assets/c2cdfabe-5874-4838-a610-de7cd6ea6794)
 
 ## ✨ Features
 
