@@ -6,7 +6,7 @@ M.setup = function(colors, utils)
 
   hl({
     Constant         = { fg = c.orange                              },
-    Identifier       = { fg = c.cyan                                },
+    Identifier       = { fg = c.lavender                            },
     Statement        = { fg = c.blue,    bold = true                },
     PreProc          = { fg = c.magenta                             },
     Type             = { fg = c.purple                              },
@@ -15,7 +15,7 @@ M.setup = function(colors, utils)
     Ignore           = { fg = c.fg3                                 },
     Error            = { fg = c.red,     bold = true                },
     Todo             = { fg = c.yellow,  bg = c.bg1, bold = true    },
-    Function         = { fg = c.magenta, bold = true                },
+    Function         = { fg = c.orange, bold = true                },
     Keyword          = { fg = c.purple,  bold = true                },
     String           = { fg = c.green                               },
     Character        = { fg = c.green                               },
