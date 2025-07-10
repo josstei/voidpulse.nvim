@@ -33,6 +33,7 @@ M.palette   = {
     crimson  = "#F7768E",
     aqua     = "#73DACA",
     coral    = "#FF9E64",
+    lavender = "#7287ff",
   
     -- UI 
     border   = "#2A305E",

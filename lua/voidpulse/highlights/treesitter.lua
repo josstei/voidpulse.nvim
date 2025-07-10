@@ -43,7 +43,7 @@ M.setup = function(colors, utils)
     ['@type.builtin']          = { fg = c.blue, italic = true },
     ['@type.definition']       = { fg = c.purple, bold = true },
     ['@attribute']             = { fg = c.yellow },
-    ['@property']              = { fg = c.cyan },
+    ['@property']              = { fg = c.lavender},
 
     -- Functions
     ['@function']              = { fg = c.magenta, bold = true },
