@@ -7,8 +7,8 @@ M.defaults = {
 
   styles = {
     comments  = { italic = true },
-    keywords  = { bold = true },
-    functions = { bold = true },
+    keywords  = { bold = false },
+    functions = { bold = false },
     variables = {},
     types     = {},
     strings   = {},

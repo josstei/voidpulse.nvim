@@ -28,7 +28,7 @@ function M.setup(colors, config)
     FoldColumn   = { fg = c.border, bg = bg },
     Folded       = { fg = c.comment, bg = p.bg_alt },
 
-    ColorColumn  = { bg = p.bg_dark },
+    ColorColumn  = { bg = p.bg_alt },
     VertSplit    = { fg = c.border },
     WinSeparator = { fg = c.border },
 
@@ -45,12 +45,6 @@ function M.setup(colors, config)
     PmenuSel     = { fg = c.fg, bg = c.pmenu_sel, bold = true },
     PmenuSbar    = { bg = c.pmenu },
     PmenuThumb   = { bg = c.pmenu_thumb },
-    PmenuKind    = { fg = p.blue, bg = c.pmenu },
-    PmenuKindSel = { fg = p.blue, bg = c.pmenu_sel },
-    PmenuExtra   = { fg = c.comment, bg = c.pmenu },
-    PmenuExtraSel = { fg = c.comment, bg = c.pmenu_sel },
-
-    WildMenu     = { fg = c.fg, bg = c.pmenu_sel, bold = true },
 
     Visual       = { bg = c.visual },
     VisualNOS    = { bg = c.visual },

@@ -1,10 +1,9 @@
 local M = {}
 
 function M.setup(colors, config)
-  local c = colors.semantic
-
   return {
     Comment        = { link = "VoidpulseComment" },
+
     Constant       = { link = "VoidpulseConstant" },
     String         = { link = "VoidpulseString" },
     Character      = { link = "VoidpulseCharacter" },
@@ -18,7 +17,7 @@ function M.setup(colors, config)
     Statement      = { link = "VoidpulseKeyword" },
     Conditional    = { link = "VoidpulseKeyword" },
     Repeat         = { link = "VoidpulseKeyword" },
-    Label          = { link = "VoidpulseKeyword" },
+    Label          = { link = "VoidpulseSpecial" },
     Operator       = { link = "VoidpulseOperator" },
     Keyword        = { link = "VoidpulseKeyword" },
     Exception      = { link = "VoidpulseKeyword" },
@@ -35,14 +34,14 @@ function M.setup(colors, config)
     Typedef        = { link = "VoidpulseType" },
 
     Special        = { link = "VoidpulseSpecial" },
-    SpecialChar    = { link = "VoidpulseStringEscape" },
+    SpecialChar    = { link = "VoidpulseSpecial" },
     Tag            = { link = "VoidpulseTag" },
     Delimiter      = { link = "VoidpulseDelimiter" },
-    SpecialComment = { fg = c.special, italic = true },
-    Debug          = { fg = c.error },
+    SpecialComment = { link = "VoidpulseComment" },
+    Debug          = { link = "VoidpulseSpecial" },
 
-    Underlined     = { fg = c.info, underline = true },
-    Ignore         = { fg = c.comment },
+    Underlined     = { underline = true },
+    Ignore         = { link = "VoidpulseComment" },
     Error          = { link = "VoidpulseError" },
     Todo           = { link = "VoidpulseTodo" },
 
