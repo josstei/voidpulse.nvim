@@ -1,48 +1,70 @@
 local M = {}
 
-M.setup = function(colors, utils)
-    local c  = colors.palette
-    local hl = utils.highlight_all
+function M.setup(colors, config)
+  local c = colors.semantic
+  local p = colors.palette
 
-    hl({
-        MiniCursorword             = { bg = c.bg2                                        },
-        MiniCursorwordCurrent      = { bg = c.bg2                                        },
-        MiniIndentscopeSymbol      = { fg = c.purple                                     },
-        MiniJump                   = { fg = c.bg0,       bg = c.cyan,     bold = true    },
-        MiniJump2dSpot             = { fg = c.bg0,       bg = c.cyan,     bold = true    },
-        MiniStarterCurrent         = { fg = c.cyan                                       },
-        MiniStarterFooter          = { fg = c.yellow,    italic = true                   },
-        MiniStarterHeader          = { fg = c.purple                                     },
-        MiniStarterInactive        = { fg = c.fg3                                        },
-        MiniStarterItem            = { fg = c.fg1                                        },
-        MiniStarterItemBullet      = { fg = c.cyan                                       },
-        MiniStarterItemPrefix      = { fg = c.yellow                                     },
-        MiniStarterSection         = { fg = c.blue                                       },
-        MiniStarterQuery           = { fg = c.green                                      },
-        MiniStatuslineDevinfo      = { fg = c.fg2,       bg = c.bg2                      },
-        MiniStatuslineFileinfo     = { fg = c.fg2,       bg = c.bg2                      },
-        MiniStatuslineFilename     = { fg = c.fg1,       bg = c.bg1                      },
-        MiniStatuslineInactive     = { fg = c.fg3,       bg = c.bg1                      },
-        MiniStatuslineModeCommand  = { fg = c.bg0,       bg = c.yellow,   bold = true    },
-        MiniStatuslineModeInsert   = { fg = c.bg0,       bg = c.green,    bold = true    },
-        MiniStatuslineModeNormal   = { fg = c.bg0,       bg = c.blue,     bold = true    },
-        MiniStatuslineModeOther    = { fg = c.bg0,       bg = c.cyan,     bold = true    },
-        MiniStatuslineModeReplace  = { fg = c.bg0,       bg = c.red,      bold = true    },
-        MiniStatuslineModeVisual   = { fg = c.bg0,       bg = c.purple,   bold = true    },
-        MiniSurround               = { fg = c.bg0,       bg = c.orange                   },
-        MiniTablineCurrent         = { fg = c.fg0,       bg = c.bg2,      bold = true    },
-        MiniTablineFill            = { bg = c.bg1                                        },
-        MiniTablineHidden          = { fg = c.fg2,       bg = c.bg1                      },
-        MiniTablineModifiedCurrent = { fg = c.orange,    bg = c.bg2                      },
-        MiniTablineModifiedHidden  = { fg = c.orange,    bg = c.bg1                      },
-        MiniTablineModifiedVisible = { fg = c.orange,    bg = c.bg1                      },
-        MiniTablineTabpagesection  = { fg = c.bg0,       bg = c.purple,   bold = true    },
-        MiniTablineVisible         = { fg = c.fg1,       bg = c.bg1                      },
-        MiniTestEmphasis           = { bold = true                                       },
-        MiniTestFail               = { fg = c.red,       bold = true                     },
-        MiniTestPass               = { fg = c.green,     bold = true                     },
-        MiniTrailspace             = { bg = c.red                                        },
-    })
+  return {
+    MiniCursorword        = { bg = c.selection },
+    MiniCursorwordCurrent = { bg = c.selection },
+
+    MiniIndentscopeSymbol = { fg = c.border },
+    MiniIndentscopePrefix = { nocombine = true },
+
+    MiniJump              = { fg = p.bg, bg = c.match, bold = true },
+    MiniJump2dSpot        = { fg = c.match, bold = true },
+    MiniJump2dSpotAhead   = { fg = c.info },
+    MiniJump2dSpotUnique  = { fg = c.special },
+
+    MiniStatuslineDevinfo     = { fg = c.fg, bg = p.bg_highlight },
+    MiniStatuslineFileinfo    = { fg = c.fg, bg = p.bg_highlight },
+    MiniStatuslineFilename    = { fg = c.fg, bg = p.bg_alt },
+    MiniStatuslineInactive    = { fg = c.comment, bg = p.bg_dark },
+    MiniStatuslineModeCommand = { fg = p.bg, bg = c.match, bold = true },
+    MiniStatuslineModeInsert  = { fg = p.bg, bg = c.string, bold = true },
+    MiniStatuslineModeNormal  = { fg = p.bg, bg = c.func, bold = true },
+    MiniStatuslineModeOther   = { fg = p.bg, bg = c.special, bold = true },
+    MiniStatuslineModeReplace = { fg = p.bg, bg = c.error, bold = true },
+    MiniStatuslineModeVisual  = { fg = p.bg, bg = c.keyword, bold = true },
+
+    MiniSurround          = { fg = p.bg, bg = c.match },
+
+    MiniTablineCurrent    = { fg = c.fg, bg = p.bg, bold = true },
+    MiniTablineFill       = { bg = p.bg_dark },
+    MiniTablineHidden     = { fg = c.comment, bg = p.bg_alt },
+    MiniTablineModifiedCurrent = { fg = c.git_change, bg = p.bg, bold = true },
+    MiniTablineModifiedHidden = { fg = c.git_change, bg = p.bg_alt },
+    MiniTablineModifiedVisible = { fg = c.git_change, bg = p.bg_alt },
+    MiniTablineTabpagesection = { fg = c.fg, bg = p.bg_highlight },
+    MiniTablineVisible    = { fg = c.fg, bg = p.bg_alt },
+
+    MiniTrailspace        = { bg = c.error },
+
+    MiniAnimateCursor     = { reverse = true },
+    MiniAnimateNormalFloat = { link = "NormalFloat" },
+
+    MiniFilesNormal       = { fg = c.fg, bg = p.bg_float },
+    MiniFilesBorder       = { fg = c.border, bg = p.bg_float },
+    MiniFilesCursorLine   = { bg = c.cursor_line },
+    MiniFilesDirectory    = { fg = c.func },
+    MiniFilesFile         = { fg = c.fg },
+    MiniFilesTitle        = { fg = c.func, bold = true },
+    MiniFilesTitleFocused = { fg = c.match, bold = true },
+
+    MiniPickBorder        = { fg = c.border, bg = p.bg_float },
+    MiniPickBorderBusy    = { fg = c.warning, bg = p.bg_float },
+    MiniPickBorderText    = { fg = c.func, bg = p.bg_float },
+    MiniPickHeader        = { fg = c.info },
+    MiniPickIconDirectory = { fg = c.func },
+    MiniPickIconFile      = { fg = c.fg },
+    MiniPickMatchCurrent  = { bg = c.selection },
+    MiniPickMatchMarked   = { fg = c.match, bold = true },
+    MiniPickMatchRanges   = { fg = c.match },
+    MiniPickNormal        = { fg = c.fg, bg = p.bg_float },
+    MiniPickPreviewLine   = { bg = c.selection },
+    MiniPickPreviewRegion = { bg = c.selection },
+    MiniPickPrompt        = { fg = c.func, bg = p.bg_float },
+  }
 end
 
 return M

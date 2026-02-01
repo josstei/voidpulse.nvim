@@ -1,17 +1,18 @@
 local M = {}
 
-M.setup = function(colors, utils)
-    local c  = colors.palette
-    local hl = utils.highlight_all
+function M.setup(colors, config)
+  local c = colors.semantic
+  local p = colors.palette
 
-    hl({
-        WhichKey          = { fg = c.cyan,  bold = true },
-        WhichKeyGroup     = { fg = c.purple             },
-        WhichKeyDesc      = { fg = c.fg1                },
-        WhichKeySeperator = { fg = c.fg2                },
-        WhichKeyFloat     = { bg = c.bg_float           },
-        WhichKeyValue     = { fg = c.green              },
-    })
+  return {
+    WhichKey          = { fg = c.func },
+    WhichKeyGroup     = { fg = c.keyword },
+    WhichKeySeparator = { fg = c.comment },
+    WhichKeyDesc      = { fg = c.fg },
+    WhichKeyValue     = { fg = c.comment },
+    WhichKeyFloat     = { bg = p.bg_float },
+    WhichKeyBorder    = { fg = c.border, bg = p.bg_float },
+  }
 end
 
 return M

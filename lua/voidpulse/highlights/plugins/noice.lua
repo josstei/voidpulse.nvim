@@ -1,21 +1,36 @@
 local M = {}
 
-M.setup = function(colors, utils)
-    local c  = colors.palette
-    local hl = utils.highlight_all
+function M.setup(colors, config)
+  local c = colors.semantic
+  local p = colors.palette
 
-    hl({
-        NoiceCompletionItemKindDefault  = { fg = c.fg3                              },
-        NoiceCompletionItemMenu         = { fg = c.fg3                              },
-        NoiceCmdlineIcon                = { fg = c.cyan                             },
-        NoiceCmdlineIconInput           = { fg = c.yellow                           },
-        NoiceCmdlineIconLua             = { fg = c.blue                             },
-        NoiceCmdlinePopup               = { fg = c.fg0,       bg    = c.bg_float    },
-        NoiceCmdlinePopupBorder         = { fg = c.border,    bg    = c.bg_float    },
-        NoiceCmdlinePopupTitle          = { fg = c.purple,    bold  = true          },
-        NoiceConfirm                    = { fg = c.fg0,       bg    = c.bg_float    },
-        NoiceConfirmBorder              = { fg = c.border,    bg    = c.bg_float    },
-    })
+  return {
+    NoiceCmdline          = { fg = c.fg },
+    NoiceCmdlineIcon      = { fg = c.func },
+    NoiceCmdlineIconSearch = { fg = c.search },
+    NoiceCmdlinePopup     = { fg = c.fg, bg = p.bg_float },
+    NoiceCmdlinePopupBorder = { fg = c.border, bg = p.bg_float },
+    NoiceCmdlinePopupTitle = { fg = c.func },
+    NoiceConfirm          = { fg = c.fg, bg = p.bg_float },
+    NoiceConfirmBorder    = { fg = c.border, bg = p.bg_float },
+    NoiceFormatConfirm    = { fg = c.info },
+    NoiceFormatConfirmDefault = { fg = p.bg, bg = c.func, bold = true },
+    NoiceLspProgressClient = { fg = c.info },
+    NoiceLspProgressSpinner = { fg = c.func },
+    NoiceLspProgressTitle = { fg = c.keyword },
+    NoiceMini             = { fg = c.fg, bg = p.bg_float },
+    NoicePopup            = { fg = c.fg, bg = p.bg_float },
+    NoicePopupBorder      = { fg = c.border, bg = p.bg_float },
+    NoicePopupmenu        = { fg = c.fg, bg = p.bg_float },
+    NoicePopupmenuBorder  = { fg = c.border, bg = p.bg_float },
+    NoicePopupmenuMatch   = { fg = c.match, bold = true },
+    NoicePopupmenuSelected = { bg = c.selection },
+    NoiceScrollbar        = { bg = p.bg_highlight },
+    NoiceScrollbarThumb   = { bg = c.comment },
+    NoiceSplit            = { fg = c.fg, bg = p.bg_float },
+    NoiceSplitBorder      = { fg = c.border, bg = p.bg_float },
+    NoiceVirtualText      = { fg = c.comment, italic = true },
+  }
 end
 
 return M

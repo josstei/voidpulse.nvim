@@ -1,18 +1,16 @@
 local M = {}
 
-M.setup = function(colors, utils)
-    local c  = colors.palette
-    local hl = utils.highlight_all
+function M.setup(colors, config)
+  local c = colors.semantic
+  local p = colors.palette
 
-    hl({
-        FlashBackdrop   = { fg      = c.fg3                                     },
-        FlashMatch      = { fg      = c.bg0,    bg = c.cyan,     bold = true    },
-        FlashCurrent    = { fg      = c.bg0,    bg = c.orange,   bold = true    },
-        FlashLabel      = { fg      = c.bg0,    bg = c.magenta,  bold = true    },
-        FlashPrompt     = { fg      = c.cyan                                    },
-        FlashPromptIcon = { fg      = c.cyan                                    },
-        FlashCursor     = { reverse = true                                      },
-    })
+  return {
+    FlashBackdrop = { fg = c.comment },
+    FlashLabel    = { fg = p.bg, bg = c.match, bold = true },
+    FlashMatch    = { fg = c.match },
+    FlashCurrent  = { fg = c.search },
+    FlashCursor   = { fg = p.bg, bg = c.cursor },
+  }
 end
 
 return M

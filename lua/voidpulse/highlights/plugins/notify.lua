@@ -1,26 +1,37 @@
 local M = {}
 
-M.setup = function(colors, utils)
-    local c  = colors.palette
-    local hl = utils.highlight_all
+function M.setup(colors, config)
+  local c = colors.semantic
+  local p = colors.palette
 
-    hl({
-        NotifyERRORBorder = { fg = c.red     },
-        NotifyWARNBorder  = { fg = c.orange  },
-        NotifyINFOBorder  = { fg = c.blue    },
-        NotifyDEBUGBorder = { fg = c.fg3     },
-        NotifyTRACEBorder = { fg = c.purple  },
-        NotifyERRORIcon   = { fg = c.red     },
-        NotifyWARNIcon    = { fg = c.orange  },
-        NotifyINFOIcon    = { fg = c.blue    },
-        NotifyDEBUGIcon   = { fg = c.fg3     },
-        NotifyTRACEIcon   = { fg = c.purple  },
-        NotifyERRORTitle  = { fg = c.red     },
-        NotifyWARNTitle   = { fg = c.orange  },
-        NotifyINFOTitle   = { fg = c.blue    },
-        NotifyDEBUGTitle  = { fg = c.fg3     },
-        NotifyTRACETitle  = { fg = c.purple  },
-    })
+  return {
+    NotifyERRORBorder = { fg = c.error },
+    NotifyERRORIcon   = { fg = c.error },
+    NotifyERRORTitle  = { fg = c.error, bold = true },
+    NotifyERRORBody   = { fg = c.fg },
+
+    NotifyWARNBorder  = { fg = c.warning },
+    NotifyWARNIcon    = { fg = c.warning },
+    NotifyWARNTitle   = { fg = c.warning, bold = true },
+    NotifyWARNBody    = { fg = c.fg },
+
+    NotifyINFOBorder  = { fg = c.info },
+    NotifyINFOIcon    = { fg = c.info },
+    NotifyINFOTitle   = { fg = c.info, bold = true },
+    NotifyINFOBody    = { fg = c.fg },
+
+    NotifyDEBUGBorder = { fg = c.comment },
+    NotifyDEBUGIcon   = { fg = c.comment },
+    NotifyDEBUGTitle  = { fg = c.comment, bold = true },
+    NotifyDEBUGBody   = { fg = c.fg },
+
+    NotifyTRACEBorder = { fg = c.hint },
+    NotifyTRACEIcon   = { fg = c.hint },
+    NotifyTRACETitle  = { fg = c.hint, bold = true },
+    NotifyTRACEBody   = { fg = c.fg },
+
+    NotifyBackground  = { bg = p.bg_float },
+  }
 end
 
 return M
