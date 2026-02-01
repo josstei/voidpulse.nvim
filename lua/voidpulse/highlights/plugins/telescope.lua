@@ -1,25 +1,25 @@
 local M = {}
 
-M.setup = function(colors, utils)
-    local c  = colors.palette
-    local hl = utils.highlight_all
+function M.setup(colors, config)
+  local c = colors.semantic
+  local p = colors.palette
 
-    hl({
-        TelescopeBorder         = { fg = c.border,  bg = c.bg_float                 },
-        TelescopeNormal         = { fg = c.fg0,     bg = c.bg_float                 },
-        TelescopeSelection      = { fg = c.fg0,     bg = c.bg3,      bold = true    },
-        TelescopeSelectionCaret = { fg = c.cyan                                     },
-        TelescopeMultiSelection = { fg = c.purple                                   },
-        TelescopeMultiIcon      = { fg = c.cyan                                     },
-        TelescopeMatching       = { fg = c.yellow,  bold = true                     },
-        TelescopePromptPrefix   = { fg = c.blue                                     },
-        TelescopePromptNormal   = { fg = c.fg0,     bg = c.bg_float                 },
-        TelescopePromptBorder   = { fg = c.border,  bg = c.bg_float                 },
-        TelescopePromptTitle    = { fg = c.magenta, bold = true                     },
-        TelescopePreviewTitle   = { fg = c.green,   bold = true                     },
-        TelescopeResultsTitle   = { fg = c.cyan,    bold = true                     },
-        TelescopePromptCounter  = { fg = c.fg2                                      },
-    })
+  return {
+    TelescopeNormal         = { fg = c.fg, bg = p.bg_float },
+    TelescopeBorder         = { fg = c.border, bg = p.bg_float },
+    TelescopePromptNormal   = { fg = c.fg, bg = p.bg_alt },
+    TelescopePromptBorder   = { fg = c.border, bg = p.bg_alt },
+    TelescopePromptTitle    = { fg = p.bg, bg = c.func, bold = true },
+    TelescopePreviewTitle   = { fg = p.bg, bg = c.info, bold = true },
+    TelescopeResultsTitle   = { fg = p.bg, bg = c.string, bold = true },
+    TelescopeSelection      = { bg = c.selection, bold = true },
+    TelescopeSelectionCaret = { fg = c.match },
+    TelescopeMultiSelection = { bg = c.selection },
+    TelescopeMultiIcon      = { fg = c.info },
+    TelescopeMatching       = { fg = c.match, bold = true },
+    TelescopePromptPrefix   = { fg = c.func },
+    TelescopePromptCounter  = { fg = c.comment },
+  }
 end
 
 return M

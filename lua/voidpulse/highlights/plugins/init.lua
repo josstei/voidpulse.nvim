@@ -1,29 +1,36 @@
-local M         = {}
+local M = {}
 
-local plugins   = {
-    "gitsigns",
-    "telescope",
-    "nvim-cmp",
-    "whichkey",
-    "nvimtree",
-    "indent-blankline",
-    "dashboard",
-    "lazy",
-    "flash",
-    "mason",
-    "noice",
-    "mini",
-    "leap",
-    "notify",
+local bundled = {
+  "telescope",
+  "nvim-tree",
+  "nvim-cmp",
+  "gitsigns",
+  "whichkey",
+  "indent-blankline",
+  "dashboard",
+  "lazy",
+  "flash",
+  "mason",
+  "noice",
+  "mini",
+  "leap",
+  "notify",
 }
 
-M.setup = function(colors, utils)
-    for _, plugin in ipairs(plugins) do
-        local ok, plugin_module = pcall(require, "voidpulse.highlights.plugins." .. plugin)
-        if ok and plugin_module.setup then
-            plugin_module.setup(colors, utils)
-        end
+function M.setup(colors, config)
+  local highlights = {}
+
+  for _, name in ipairs(bundled) do
+    local ok, plugin = pcall(require, "voidpulse.highlights.plugins." .. name)
+    if ok then
+      local plugin_hl = plugin.setup(colors, config)
+      for k, v in pairs(plugin_hl) do
+        highlights[k] = v
+      end
     end
+  end
+
+  return highlights
 end
 
 return M
